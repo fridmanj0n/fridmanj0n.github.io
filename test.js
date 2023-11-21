@@ -113,7 +113,7 @@ function handleDelete() {
 }
 
 function attachCubeEventListeners(cube) {
-    cube.addEventListener('click', handleContextMenu);
+    cube.addEventListener('click', handleclick);
     cube.querySelector('.delete-btn').addEventListener('click', handleDelete);
 }
 
@@ -174,7 +174,7 @@ function loadCubeData(subject, username) {
 
 
 
-function handleContextMenu(event) {
+function handleclick(event) {
     event.preventDefault();
     toggleFullScreen(this);
 }
