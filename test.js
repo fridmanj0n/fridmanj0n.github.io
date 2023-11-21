@@ -142,6 +142,10 @@ function createCube(title, text, color, username) {
     };
     cube.appendChild(deleteBtn);
 
+    cube.addEventListener('click', function() {
+        toggleRotateOnHover(cube);
+    })
+
     return cube;
 }
 
@@ -150,6 +154,11 @@ function toggleFullScreen(cube) {
     cube.classList.toggle('full-page');
     const deleteBtn = cube.querySelector('.delete-btn');
     deleteBtn.style.display = cube.classList.contains('full-page') ? 'block' : 'none';
+    cube.classList.toggle('full-page-no-hover');
+}
+
+function toggleRotateOnHover(cube) {
+    cube.classList.toggle('no-hover-rotate');
 }
 
 function saveCubeData(key, cubesHtml) {
