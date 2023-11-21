@@ -113,7 +113,7 @@ function handleDelete() {
 }
 
 function attachCubeEventListeners(cube) {
-    cube.addEventListener('contextmenu', handleContextMenu);
+    cube.addEventListener('click', handleContextMenu);
     cube.querySelector('.delete-btn').addEventListener('click', handleDelete);
 }
 
@@ -162,7 +162,7 @@ function loadCubeData(subject, username) {
     console.log(data);
     document.getElementById('cubes-container').innerHTML = data;
     document.querySelectorAll('.cube').forEach(cube => {
-        cube.addEventListener('contextmenu', function(event) {
+        cube.addEventListener('click', function(event) {
             event.preventDefault();
             toggleFullScreen(cube);
         });
