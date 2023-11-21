@@ -50,9 +50,20 @@
     left: 0;
     margin-top: 0;
     z-index: 100;
-    transform: none;
+    transform: rotateY(0deg);
     transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
+
+.cube.no-hover-rotate:hover {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.cube.full-page-no-hover:hover {
+    transform: perspective(600px) rotateY(0deg) !important;
+}
+
+
+
 
 #show-form-btn {
     background-color: #008CBA;
