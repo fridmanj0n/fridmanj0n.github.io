@@ -123,7 +123,7 @@ function createCube(title, text, color, username) {
     cube.style.backgroundColor = color;
     cube.innerHTML = `<h1>${title}</h1><p>${text}</p>`;
     cube.dataset.username = username; // Store the username as a data attribute
-    cube.addEventListener('contextmenu', function(event) {
+    cube.addEventListener('click', function(event) {
         event.preventDefault();
         toggleFullScreen(cube);
     });
