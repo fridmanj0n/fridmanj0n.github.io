@@ -1,0 +1,67 @@
+#hamburger {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+#nameOptions {
+    position: absolute;
+    top: 40px; /* Adjust as needed */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+#nameOptions.hidden {
+    display: block;
+    transform: translateX(-100%);
+}
+
+#nameOptions.slide-in {
+    transform: translateX(0);
+}
+/* ... existing styles ... */
+
+.menu {
+    position: absolute;
+    top: 40px; /* Adjust as needed */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.menu.hidden {
+    display: block;
+    transform: translateX(-100%);
+}
+
+.menu.slide-in {
+    transform: translateX(0);
+}
+
+/* ... existing button styles ... */
+
+
+#nameOptions button {
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+#nameOptions button:hover {
+    background-color: #45a049;
+}

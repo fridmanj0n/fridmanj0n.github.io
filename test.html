@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Management</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body class="background">
+    <div id="current-subject-display">
+        Current Subject: <span id="current-subject">None</span>
+    </div>
+
+    <div id="cubes-container">
+        <!-- Existing cubes will be displayed here -->
+    </div>
+
+    <button id="create-homework-code">🔒</button>
+    <div id="set-code" style="display: none;">
+        <input type="text" id="hc" placeholder="Enter homework code here" size="20">
+        <button id="sc">Confirm</button>
+    </div>
+
+    <button id="show-form-btn">+</button>
+
+    <div id="cube-form" style="display: none;">
+        <input type="text" id="cube-title" placeholder="Title" size="30">
+        <input type="text" id="cube-text" placeholder="Text" size="30">
+        <input type="color" id="cube-color" value="#ffffff">
+        <button id="add-cube-btn">Add Cube</button>
+    </div>
+    
+
+    <script src="test.js"></script>
+</body>
+</html>
