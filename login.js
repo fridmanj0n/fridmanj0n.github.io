@@ -1,14 +1,29 @@
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-const validCredentials = {
-    "michael": "password1",
-    "noamL": "password2",
-    "noamO": "password3",
-    "uri": "password4",
-    "itamar": "password5",
-    "gilad": "password6",
-    "shawarma": "shawarmazetaime",
-};
+function decodePasswords(obj) {
+    const decodedPasswords = {};
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const decodedValue = atob(obj[key]);
+        decodedPasswords[key] = decodedValue;
+      }
+    }
+    return decodedPasswords;
+  }
+  
+  // Obfuscated passwords
+  const obfuscatedPasswords = {
+    michael: 'cGFzc3dvcmQx',
+    noamL: 'cGFzc3dvcmQy',
+    noamO: 'cGFzc3dvcmQz',
+    uri: 'cGFzc3dvcmQ0',
+    itamar: 'cGFzc3dvcmQ1',
+    gilad: 'cGFzc3dvcmQ2',
+    shawarma: 'c2hhd2FybWF6ZXRhaW1l'
+  };
+  
+  // Decoded passwords
+  const validCredentials = decodePasswords(obfuscatedPasswords);
 
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
