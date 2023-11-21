@@ -125,7 +125,9 @@ function createCube(title, text, color, username) {
     cube.dataset.username = username; // Store the username as a data attribute
     cube.addEventListener('click', function(event) {
         event.preventDefault();
-        toggleFullScreen(cube);
+        if (event.button === 0){
+            toggleFullScreen(cube);
+        }
     });
 
     const deleteBtn = document.createElement('button');
