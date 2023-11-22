@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  darkModeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+  });
+});
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 function decodePasswords(obj) {
