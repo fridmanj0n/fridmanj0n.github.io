@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    darkModeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+    });
     const userrole = localStorage.getItem('userRole');
     const storeduser = localStorage.getItem('currentUser');
     const codes = localStorage.getItem('codes');
