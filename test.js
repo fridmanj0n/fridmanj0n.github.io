@@ -77,6 +77,7 @@ function createCube(title, text, color) {
         if (cube.classList.contains('full-page')) {
             cube.remove();
             saveCubeData(currentSubject, document.getElementById('cubes-container').innerHTML);
+            console.log('removing cube from data');
         }
     });
     cube.appendChild(deleteBtn);
