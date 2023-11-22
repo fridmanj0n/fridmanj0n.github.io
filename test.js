@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const socket = io();
     const storeduser = localStorage.getItem('currentUser');
     const currentUser = JSON.parse(storeduser);
     const userName = localStorage.getItem('cubename');
@@ -52,6 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add-cube-btn').addEventListener('click', (event) => {
         event.preventDefault();
         addCube();
+        const title = document.getElementById('cube-title').value;
+        const text = document.getElementById('cube-text').value;
+        const color = document.getElementById('cube-color').value;
+        const cubeData = {
+            title: title,
+            text: text,
+            color: color,
+            username: userName,
+        };
+        socket.emit('createCube', cubeData);
     });
 
     const subjectFromURL = getURLParameter('subject');
