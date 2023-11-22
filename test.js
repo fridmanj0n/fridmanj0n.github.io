@@ -65,7 +65,7 @@ function createCube(title, text, color) {
     cube.classList.add('cube');
     cube.style.backgroundColor = color;
     cube.innerHTML = `<h1>${title}</h1><p>${text}</p>`;
-    cube.addEventListener('contextmenu', function(event) {
+    cube.addEventListener('click', function(event) {
         event.preventDefault();
         toggleFullScreen(cube);
     });
@@ -98,7 +98,7 @@ function loadCubeData() {
     const data = localStorage.getItem(currentSubject) || '';
     document.getElementById('cubes-container').innerHTML = data;
     document.querySelectorAll('.cube').forEach(cube => {
-        cube.addEventListener('contextmenu', function(event) {
+        cube.addEventListener('click', function(event) {
             event.preventDefault();
             toggleFullScreen(cube);
         });
@@ -114,7 +114,7 @@ function clearForm() {
 }
 
 document.querySelectorAll('.cube').forEach(cube => {
-    cube.addEventListener('contextmenu', function(event) {
+    cube.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent the default context menu
         toggleFullScreen(this);
     });
