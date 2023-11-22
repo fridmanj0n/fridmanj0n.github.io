@@ -19,7 +19,8 @@ function decodePasswords(obj) {
     uri: 'Z2F5c2V4Njk=',
     itamar: 'cGFzc3dvcmQ1',
     gilad: 'cGFzc3dvcmQ2',
-    shawarma: 'Z29hdHRocm93ZXI2OQ=='
+    shawarma: 'Z29hdHRocm93ZXI2OQ==',
+    guest: 'Z3Vlc3Q='
   };
   
   // Decoded passwords
