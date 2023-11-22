@@ -13,13 +13,13 @@ function decodePasswords(obj) {
   
   // Obfuscated passwords
   const obfuscatedPasswords = {
-    michael: 'cGFzc3dvcmQx',
+    michael: 'cnVhdGF4bw==',
     noamL: 'cGFzc3dvcmQy',
     noamO: 'cGFzc3dvcmQz',
-    uri: 'cGFzc3dvcmQ0',
+    uri: 'Z2F5c2V4Njk=',
     itamar: 'cGFzc3dvcmQ1',
     gilad: 'cGFzc3dvcmQ2',
-    shawarma: 'c2hhd2FybWF6ZXRhaW1l'
+    shawarma: 'Z29hdHRocm93ZXI2OQ=='
   };
   
   // Decoded passwords
