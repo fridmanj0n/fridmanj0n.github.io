@@ -73,12 +73,12 @@ function createCube(title, text, color) {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
     deleteBtn.textContent = 'X';
-    deleteBtn.onclick = function() {
+    deleteBtn.addEventListener('click', function() {
         if (cube.classList.contains('full-page')) {
             cube.remove();
             saveCubeData(currentSubject, document.getElementById('cubes-container').innerHTML);
         }
-    };
+    });
     cube.appendChild(deleteBtn);
 
     return cube;
