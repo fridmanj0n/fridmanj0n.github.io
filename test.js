@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io(); // Connect to the server
-  
     const storeduser = localStorage.getItem('currentUser');
     const currentUser = JSON.parse(storeduser);
     const userName = localStorage.getItem('cubename');
@@ -8,71 +6,61 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(currentUser);
     console.log(userName);
     if (currentUser.username !== userName) {
-      const button = document.getElementById('show-form-btn');
-      const button1 = document.getElementById('create-homework-code');
-      if (currentUser.username === "shawarma") {
-        button.disabled = false;
-        button1.disabled = false;
-      } else {
-        alert('You are not authorized to make changes to this page.');
-        button.disabled = true;
-        button1.disabled = true;
-      }
+        const button = document.getElementById('show-form-btn');
+        const button1 = document.getElementById('create-homework-code');
+        if (currentUser.username === "shawarma") {
+            button.disabled = false;
+            button1.disabled = false;
+        } else {
+            alert('You are not authorized to make changes to this page.');
+            button.disabled = true;
+            button1.disabled = true;
+        }
     }
-  
     document.getElementById('show-form-btn').addEventListener('click', () => {
-      document.getElementById('cube-form').style.display = 'block';
-      document.getElementById('show-form-btn').style.display = 'none';
+        document.getElementById('cube-form').style.display = 'block';
+        document.getElementById('show-form-btn').style.display = 'none';
     });
-  
-    document.getElementById('create-homework-code').addEventListener('click', () => {
-      document.getElementById('set-code').style.display = 'block';
-      document.getElementById('create-homework-code').style.display = 'none';
+
+    document.getElementById('create-homework-code').addEventListener('click', () =>{
+        document.getElementById('set-code').style.display = 'block';
+        document.getElementById('create-homework-code').style.display = 'none';
     });
-  
+
     document.getElementById('sc').addEventListener('click', (event) => {
-      event.preventDefault();
-      const code = document.getElementById('hc').value;
-      console.log(code);
-      setcode(code);
+        event.preventDefault();
+        const code = document.getElementById('hc').value;
+        console.log(code);
+        setcode(code);
     });
-  
     function setcode(enteredCode) {
-      const existingCodes = [];
-      const newUserCode = {
-        username: currentUser.username,
-        code: enteredCode,
-      };
-      existingCodes.push(newUserCode);
-      localStorage.setItem('codes', JSON.stringify(newUserCode));
-      console.log('Code set successfully:', newUserCode);
-      console.log(existingCodes);
+        const existingCodes = [];
+        const newUserCode = {
+            username: currentUser.username,
+            code: enteredCode,
+        };
+        existingCodes.push(newUserCode)
+        localStorage.setItem('codes', JSON.stringify(newUserCode));
+        console.log('Code set successfully:', newUserCode);
+        console.log(existingCodes);
     }
-  
+
+    
+    
+    
+
     document.getElementById('add-cube-btn').addEventListener('click', (event) => {
-      event.preventDefault();
-      addCube();
-  
-      // Emit 'createCube' event to the server
-      const title = document.getElementById('cube-title').value;
-      const text = document.getElementById('cube-text').value;
-      const color = document.getElementById('cube-color').value;
-      const cubeData = {
-        title: title,
-        text: text,
-        color: color,
-        username: userName,
-      };
-      socket.emit('createCube', cubeData);
+        event.preventDefault();
+        addCube();
     });
-  
+
     const subjectFromURL = getURLParameter('subject');
     if (subjectFromURL) {
-      changeSubject(subjectFromURL);
+        changeSubject(subjectFromURL);
     } else {
-      changeSubject(currentSubject);
+        changeSubject(currentSubject);
     }
-  
+
     loadCubeData(`${currentSubject}`, `${userName}`); // Load cube data after DOM content is loaded
 });
 
@@ -157,13 +145,9 @@ function createCube(title, text, color, username) {
     cube.addEventListener('click', function() {
         toggleRotateOnHover(cube);
     })
+
     return cube;
 }
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
-});
-
 
 
 function toggleFullScreen(cube) {
@@ -186,7 +170,6 @@ function saveCubeData(key, cubesHtml) {
 function loadCubeData(subject, username) {
     console.log(`subject: ${subject}, username: ${username}`);
     const data = localStorage.getItem(`${subject}_${username}`);
-    socket.emit('createCube', data);
     console.log(data);
     document.getElementById('cubes-container').innerHTML = data;
     document.querySelectorAll('.cube').forEach(cube => {
