@@ -7,18 +7,14 @@
     <link rel="stylesheet" href="test.css">
 </head>
 <body class="background">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
     <div id="current-subject-display">
         Current Subject: <span id="current-subject">None</span>
     </div>
 
     <div id="cubes-container">
         <!-- Existing cubes will be displayed here -->
-    </div>
-
-    <button id="create-homework-code">🔒</button>
-    <div id="set-code" style="display: none;">
-        <input type="text" id="hc" placeholder="Enter homework code here" size="20">
-        <button id="sc">Confirm</button>
     </div>
 
     <button id="show-form-btn">+</button>
