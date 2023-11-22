@@ -95,8 +95,10 @@ function saveCubeData(key, cubesHtml) {
     localStorage.setItem(key, cubesHtml);
 }
 
-function loadCubeData() {
-    const data = localStorage.getItem(currentSubject) || '';
+function loadCubeData(subject, username) {
+    console.log(`subject: ${subject}, username: ${username}`);
+    const data = localStorage.getItem(`${subject}_${username}`);
+    console.log(data);
     document.getElementById('cubes-container').innerHTML = data;
     document.querySelectorAll('.cube').forEach(cube => {
         cube.addEventListener('click', function(event) {
