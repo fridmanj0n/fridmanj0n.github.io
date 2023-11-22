@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const userrole = localStorage.getItem('userRole');
     const storeduser = localStorage.getItem('currentUser');
     const codes = localStorage.getItem('codes');
     const currentUser = JSON.parse(storeduser);
@@ -38,8 +39,9 @@ function showSubjectSelection(userName) {
 
 function showentercodewindow(userName){
     const storeduser = localStorage.getItem('currentUser');
+    const userrole = localStorage.getItem('userRole');
     const currentUser = JSON.parse(storeduser);
-    if (userName === currentUser.username) {
+    if (userName === currentUser.username || userrole === 'admin') {
         redirectToCubeManagement(userName, 'homework')
     }
     const homeworkcodeinput = document.getElementById('homeworkcode') || document.createElement('div');
