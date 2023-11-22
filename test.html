@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="test.css">
 </head>
 <body class="background">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
     <div id="current-subject-display">
         Current Subject: <span id="current-subject">None</span>
     </div>
@@ -25,7 +27,7 @@
 
     <div id="cube-form" style="display: none;">
         <input type="text" id="cube-title" placeholder="Title" size="30">
-        <textarea id="cube-text" cols="40" rows="5" placeholder="text"></textarea>
+        <input type="text" id="cube-text" placeholder="Text" size="30">
         <input type="color" id="cube-color" value="#ffffff">
         <button id="add-cube-btn">Add Cube</button>
     </div>
