@@ -7,8 +7,6 @@
     position: absolute;
     top: 40px; /* Adjust as needed */
     left: 0;
-    background-color: white;
-    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -64,4 +62,25 @@
 
 #nameOptions button:hover {
     background-color: #45a049;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+#nameOptions.dark-mode {
+    background-color: #333 !important;
+}
+
+.dark-mode-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
 }
