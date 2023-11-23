@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
-  darkModeToggle.addEventListener('click', function() {
+  darkModeToggle.addEventListener('click', function() {/*animation*/
     body.classList.toggle('dark-mode');
     updateDarkModeSymbol();
   });
