@@ -3,7 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   darkModeToggle.addEventListener('click', function() {
     body.classList.toggle('dark-mode');
+    updateDarkModeSymbol();
   });
+  function updateDarkModeSymbol() {
+    const darkModeSymbol = document.querySelector('.dark-mode-button');
+    darkModeSymbol.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    darkModeSymbol.style.transform = 'rotate(0deg)';
+    setTimeout(() => {
+      darkModeSymbol.style.transform = 'rotate(360deg)';
+    }, 50);
+  }
+  updateDarkModeSymbol();
 });
 document.addEventListener('contextmenu', event => event.preventDefault());
 
