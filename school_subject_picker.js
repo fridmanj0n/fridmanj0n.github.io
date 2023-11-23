@@ -73,7 +73,7 @@ function redirectTohomeworkManagement(userName, subject) {
 
     const enteredCode = document.getElementById('hwc').value;
     console.log(enteredCode);
-    if (enteredCode === currentcode.code && currentUser.username === userName){
+    if (enteredCode === currentcode.code || currentUser.username === userName){
         window.location.href = `test.html?user=${userName}&subject=${subject}&code=${enteredCode}`;
     } else {
         alert('Invalid code or code does not belong to the user');
