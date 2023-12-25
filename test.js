@@ -1,4 +1,4 @@
-import { write , read } from '/mymodules.js';
+import { write , read } from './mymodules.js';
 document.addEventListener('DOMContentLoaded', () => {
     const storeduser = localStorage.getItem('currentUser');
     const currentUser = JSON.parse(storeduser);
