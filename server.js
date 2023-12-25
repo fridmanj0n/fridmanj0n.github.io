@@ -33,7 +33,7 @@ app.post('/cubedb.txt', (req, res) => {
 app.use(express.static('public'));
 
 // Define your Express.js routes here
-app.get('/public/login.html', (req, res) => {
+app.get('/login.html', (req, res) => {
     res.json({ message: 'This is an API endpoint' });
 });
 app.use((_req, res, next) => {
@@ -48,5 +48,5 @@ const server = http.createServer(app);
 
 // Start the server
 server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/login.html`);
+    console.log(`Server running on http://localhost:${port}/index.html`);
 });
