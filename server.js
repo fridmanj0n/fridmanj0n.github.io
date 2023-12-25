@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.post('/cubedb.txt', (req, res) => {
     const cubedata = req.body.cubedata;
-    const filepath = 'public/cubedb.txt';
+    const filepath = 'cubedb.txt';
     console.log(`filepath: ${filepath}`);
     const newData = cubedata+'\n';
     fs.appendFile(filepath, newData, (err) => {
