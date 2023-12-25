@@ -1,29 +1,52 @@
-// server.js
-
-const express = require('express');
 const http = require('http');
-const socketIo = require('socket.io');
-const path = require('path');
-
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const fs = require('fs');
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+const port = 8080;
 
-app.use(express.static(path.join(__dirname, 'public')));
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// Enable CORS for all routes
+app.use(cors());
+app.use(bodyParser.json());
 
-  socket.on('createCube', (cubeData) => {
-    io.emit('cubeCreated', cubeData);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
+app.post('/cubedb.txt', (req, res) => {
+    const cubedata = req.body.cubedata;
+    const filepath = 'public/cubedb.txt';
+    console.log(`filepath: ${filepath}`);
+    const newData = cubedata+'\n';
+    fs.appendFile(filepath, newData, (err) => {
+        if (err) {
+            console.error('error writing to file:', err);
+            res.status(500).send('Internal Server Error');
+        } else {
+            console.log('Data written to file');
+            res.status(200).send('Data written to file');
+            console.log(`cubedata: ${newData}`);
+        }
+    });
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+// Serve static files from the public directory
+app.use(express.static('public'));
+
+// Define your Express.js routes here
+app.get('/public/login.html', (req, res) => {
+    res.json({ message: 'This is an API endpoint' });
+});
+app.use((_req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
+// Create a server using the http module
+const server = http.createServer(app);
+
+// Start the server
+server.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}/login.html`);
 });
