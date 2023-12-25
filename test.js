@@ -1,3 +1,4 @@
+import { write , read } from './mymodules.js';
 document.addEventListener('DOMContentLoaded', () => {
     const storeduser = localStorage.getItem('currentUser');
     const currentUser = JSON.parse(storeduser);
@@ -108,6 +109,7 @@ function handleDelete() {
     if (cube.classList.contains('full-page')) {
         cube.remove();
         const key = `${currentSubject}_${cube.dataset.username}`;
+        console.log('called function handledelete');
         saveCubeData(key, document.getElementById('cubes-container').innerHTML);
     }
 }
@@ -160,16 +162,20 @@ function toggleRotateOnHover(cube) {
     cube.classList.toggle('no-hover-rotate');
 }
 
-function saveCubeData(key, cubesHtml) {
-    localStorage.setItem(key, cubesHtml);
-    console.log(key, cubesHtml);
-    console.log('saving cubedata');
-}
 
-function loadCubeData(subject, username) {
-    console.log(`subject: ${subject}, username: ${username}`);
-    const data = localStorage.getItem(`${subject}_${username}`);
-    console.log(data);
+
+function saveCubeData(key, cubesHtml) {
+    console.log(key, cubesHtml);
+    const cubedata=key + cubesHtml;
+    write(cubedata);
+}
+async function loadCubeData(subject, username) {
+    //console.log(`subject: ${subject}, username: ${username}`);
+    const sn=`${subject}_${username}`;
+    const results = await read(sn);
+    //console.log(`sn: ${sn}`);
+    console.log(`line1: ${results}`);
+    const data=results;
     document.getElementById('cubes-container').innerHTML = data;
     document.querySelectorAll('.cube').forEach(cube => {
         cube.addEventListener('click', function(event) {
@@ -177,7 +183,7 @@ function loadCubeData(subject, username) {
             toggleFullScreen(cube);
         });
     });
-}
+};
 
 
 
