@@ -58,6 +58,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             username: username,
             password: password,
         };
+        if (user === 'michaelmom') {
+          alert("I love michael's mom");
+        }
         console.log('Login successful for:', username);
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
         const role = username === "shawarma" ? 'admin' : 'user';
