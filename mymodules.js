@@ -6,6 +6,7 @@ export async function write(cubedata) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                accept: 'application/json',
             },
             body: JSON.stringify({ cubedata }),
         });
