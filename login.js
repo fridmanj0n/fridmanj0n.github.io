@@ -58,7 +58,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             username: username,
             password: password,
         };
-        if (user === 'michaelmom') {
+        if (username === 'michaelmom') {
           alert("I love michael's mom");
         }
         console.log('Login successful for:', username);
