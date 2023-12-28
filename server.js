@@ -30,10 +30,9 @@ app.post('/cubedb.txt', (req, res) => {
 
 
 // Serve static files from the public directory
-app.use(express.static('public'));
 
 // Define your Express.js routes here
-app.get('/login.html', (req, res) => {
+app.get('/index.html', (req, res) => {
     res.json({ message: 'This is an API endpoint' });
 });
 app.use((_req, res, next) => {
